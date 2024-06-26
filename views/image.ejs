@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <form action="/submit" method="post" enctype="multipart/form-data">
+      <label>Name:<input type="text" name="name" id="name" /></label>
+      <label>File:<input type="file" name="file" id="file" /></label>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="container">
+      <div class="row">
+        <% users.forEach(image => { %>
+        <div class="col-sm-4">
+          <div class="card" style="width: 18rem">
+            <img
+              src="/uploads/<%= image.file %>"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h5 class="card-title"><%= image.name %></h5>
+            </div>
+          </div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>
